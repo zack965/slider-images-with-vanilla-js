@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image slider</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+			box-sizing: border-box;
+		}
+		#countainer{
+			height: 500px;
+			background-image: url("a1.jpg");
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+		/* Next & previous buttons */
+		#prev, #next {
+		cursor: pointer;
+		position: absolute;
+		top: 50%;
+		width: auto;
+		padding: 16px;
+		margin-top: -22px;
+		color: white;
+		font-weight: bold;
+		font-size: 18px;
+		transition: 0.6s ease;
+		border-radius: 0 3px 3px 0;
+		user-select: none;
+		}
+
+		/* Position the "next button" to the right */
+		#next {
+		right: 0;
+		border-radius: 3px 0 0 3px;
+		}
+
+		/* On hover, add a black background color with a little bit see-through */
+		#prev:hover, #next:hover {
+		background-color: rgba(0,0,0,0.8);
+		}
+
+	</style>
+</head>
+<body>
+	<div id="countainer">
+		<p id="demo"></p>
+		<button id="next" onclick="next()">next</button>
+		<button id="prev" onclick="prev()">prev</button>
+	</div>
+
+	<script>
+		let imagescounter = 2;
+		function next(){
+			if(imagescounter<6){
+				document.getElementById("countainer").style.backgroundImage="url("+"a"+ imagescounter++ +".jpg)";
+				console.log(imagescounter);
+			}
+
+			else if(imagescounter>=6){
+				imagescounter = 1;
+				document.getElementById("countainer").style.backgroundImage="url("+"a"+ imagescounter++ +".jpg)";
+				console.log(imagescounter);
+			}
+		}
+		function prev(){
+			/*if(imagescounter == 6){
+				imagescounter--;
+				document.getElementById("countainer").style.backgroundImage="url("+"a"+ imagescounter-- +".jpg)";
+				console.log(imagescounter + " zgal 666");
+			}*/
+			if(imagescounter>1){
+				//imagescounter--;
+				document.getElementById("countainer").style.backgroundImage="url("+"a"+ --imagescounter +".jpg)";
+				console.log(imagescounter + " " + "sghar mn 6");
+			}
+
+			else if(imagescounter<=1){
+				imagescounter = 6;
+				document.getElementById("countainer").style.backgroundImage="url("+"a"+ --imagescounter +".jpg)";
+				console.log(imagescounter + " " + "sghar mn 0");
+			}else{
+				console.log("none");
+			}
+		}
+
+
+		//counter++;
+			/*for(i=0;i<myarr.length;i++){
+			//document.getElementById("demo").innerHTML=counter;
+				let myarr = [1,2,3,4,5];
+
+			}*/
+			//myarr[counter++];
+			//document.getElementById("demo").innerHTML = myarr;
+	</script>
+
+</body>
+</html>
